@@ -9,7 +9,7 @@
 * subtraction(-)
 * division(/)
 
-####The plotter ensures that the following:
+#### The plotter ensures that the following:
 * user input is valid and the input resembles a valid function
 * The input boundaries are real numbers and the lower bound is less than upper bound
 

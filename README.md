@@ -14,3 +14,5 @@
 * The input boundaries are real numbers and the lower bound is less than upper bound
 
 
+                          ![bar-graph](https://github.com/Omar-Elsendiony/Function-Plotter/assets/82820327/54540296-a446-4419-a16d-c372b1ed2699)
+

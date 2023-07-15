@@ -84,17 +84,17 @@ class MainWindow(QWidget):
         self.show()
 
     def setButton(self):
-        btn1 = QPushButton("Plot",self)
+        self.btn1 = QPushButton("Plot",self)
         # btn1.move(0,50)
-        btn1.clicked.connect(self.update_plot)
+        self.btn1.clicked.connect(self.update_plot)
 
-        btn1.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        btn1.setMaximumWidth(100)
+        self.btn1.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        self.btn1.setMaximumWidth(100)
         # btn2.setMaximumWidth(100)
         # btn3.setMaximumWidth(100)
         # btn1.setLayoutDirection()
-        self.layout2.addWidget(btn1)
-        btn1.setStyleSheet("background-color:#F21231")
+        self.layout2.addWidget(self.btn1)
+        self.btn1.setStyleSheet("background-color:#F21231")
         # btn1.setLayoutDirection(Qt)
 
     def update_plot(self):
@@ -108,7 +108,7 @@ class MainWindow(QWidget):
         myEquation = self.inputText.text()
         self.xData = np.linspace(int(xMinVal),int(xMaxVal),100)
         res1,res2,type = utility.computeY(myEquation,self.xData)
-        print(type)
+        # print(type)
         if (type[0] == 'pa'): self.yData=res2[-1]    #pa equivalent to processed array
         elif (type[0] == 'n'):  myOnes = np.ones(len(self.xData)); self.yData=res1[-1]*myOnes #n is a constant number
         elif (type[0] =="error"): QMessageBox.about(self,"update error","error in the equation"); return
@@ -146,7 +146,7 @@ class MainWindow(QWidget):
 
     def addIcon(self):
         icon1 = QIcon("bar-graph")
-        appIcon = QIcon("fff")
+        appIcon = QIcon("lap")
         self.setWindowIcon(appIcon)
         # icon1.set
         
@@ -202,14 +202,14 @@ class MainWindow(QWidget):
         try:
         # Convert it into integer
             val = int(myInput)
-            print("Input is an integer number. Number = ", val)
+            # print("Input is an integer number. Number = ", val)
         except ValueError:
             try:
                 # Convert it into float
                 val = float(myInput)
-                print("Input is a float  number. Number = ", val)
+                # print("Input is a float  number. Number = ", val)
             except ValueError:
-                print("No.. input is not a number. It's a string")
+                # print("No.. input is not a number. It's a string")
                 return False
         return True
     def checkValidityBoundaries(self,min,max):
@@ -231,7 +231,7 @@ class MainWindow(QWidget):
         
         self.xData = np.linspace(int(xMinVal),int(xMaxVal),100)
         res1,res2,type = utility.computeY(myEquation,self.xData)
-        print(type)
+        # print(type)
         if (type[0] == 'pa'): self.yData=res2[-1]    #pa equivalent to processed array
         elif (type[0] == 'n'):  myOnes = np.ones(len(self.xData)); self.yData=res1[-1]*myOnes #n is a constant number
         elif (type[0] =="error"): QMessageBox.about(self,"update error","error in the equation"); return
@@ -250,7 +250,11 @@ class QLabelClickable(QLabel):
     def mousePressEvent(self, ev: QMouseEvent) -> None:    
         w.update_plot_2(self.text()) 
         # return QMessageBox.about(self,"info","Error F*")
+
+
+if __name__ == '__main__':  
+    app = QApplication(sys.argv)
+    # app.setActiveWindow(QM)
+    w = MainWindow()
     
-app = QApplication(sys.argv)
-w = MainWindow()
-app.exec_()
+    app.exec_()

@@ -1,4 +1,5 @@
 
+import sys
 opPrecedence = { '^': 0 , '*':1, '/': 1 , '+': 2 , '-': 2} #operatorPrecence dictionary
 textOperand = [] #list that simulates stack and text numbers are seperated by '-'
 numOperand = [] 
@@ -40,13 +41,17 @@ def evaluateSubExpression(): # get the last operator and operate on the last two
     elif (operator == '-'):
         res = firstOperand - secondOperand
     elif (operator == '/'):
-        res = firstOperand / secondOperand
+        try:
+            res = firstOperand / secondOperand
+        except:
+            res=sys.maxsize  # dividing by very small number oro zero will yield infinity soo, we simulate using very large number
     elif (operator == '^'):
         res = firstOperand ** secondOperand
     if (isArray == 1): arrayOperand.append(res);typeOperand.append('pa')
     else: numOperand.append(res) ; typeOperand.append('n')
     pass
 def computeY(equation,x=[]):
+    if equation == '': return 0,0,["error"] #if there was no equation entered return error
     equationIterator = 0
     typeOperand.clear();numOperand.clear();inputOperand.clear();operators.clear()
     # arrayOperand.append(x)

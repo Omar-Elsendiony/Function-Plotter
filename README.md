@@ -23,7 +23,7 @@ First install the requiried dependencies using the following commands:
 * pip install pytestqt
 
 
-# How to use it
+# How to run it
 The main GUI is in the file named 'main' (That is where the program starts) , run the file and the GUI will open up
 The logic behind parsing the equation is in the file named 'utility'
 

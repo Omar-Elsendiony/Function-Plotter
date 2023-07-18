@@ -31,9 +31,10 @@ The logic behind parsing the equation is in the file named 'utility'
 The automated tests which utilize 'pytest' library are in the file 'test_main' , to run it type:
 pytest <relative directory name> <test file name (optional)>:: <function name(optional)>
 
+# How to use it
+* First, define the boundaries of the equation using xMin and xMax
+* You can alternate between previously entered equations just by clicking on the labels! This provides ease of access to the history of at most 4 previous equations
+* Insert your equation in text box and click plot and Voila, the equation is plotted
 
-First, define the boundaries of the equation using xMin and xMax
-
-
-You can alternate between previously entered equations just by clicking on the labels! This provides ease of access to the history of at most 4 previous equations
+Note: there is a toolbar above the plot that contains functionalities that aids in gaining the best value out of the plot
 
